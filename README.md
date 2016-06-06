@@ -1,2 +1,2 @@
 # bug-reporter
-android app bug report, catch app crash stack trace automatically.
+android app bug reporter, catch app crash stack trace automatically.
