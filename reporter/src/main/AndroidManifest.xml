@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fkinh.bugreport.lib">
+    package="com.fkinh.bugreporter.lib">
 
     <application
         android:allowBackup="true"

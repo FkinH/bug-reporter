@@ -1,4 +1,4 @@
-package com.fkinh.bugreport;
+package com.fkinh.bugreporter;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

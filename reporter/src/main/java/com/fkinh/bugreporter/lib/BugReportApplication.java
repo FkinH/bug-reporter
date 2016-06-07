@@ -1,7 +1,6 @@
-package com.fkinh.bugreport.lib;
+package com.fkinh.bugreporter.lib;
 
 import android.app.Application;
-import android.provider.Settings;
 
 /**
  * Author: jinghao

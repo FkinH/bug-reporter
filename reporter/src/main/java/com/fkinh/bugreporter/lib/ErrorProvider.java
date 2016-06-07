@@ -1,4 +1,4 @@
-package com.fkinh.bugreport.lib;
+package com.fkinh.bugreporter.lib;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;

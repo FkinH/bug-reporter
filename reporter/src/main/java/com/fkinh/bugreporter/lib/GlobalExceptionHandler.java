@@ -1,9 +1,7 @@
-package com.fkinh.bugreport.lib;
+package com.fkinh.bugreporter.lib;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
 
 import java.util.Arrays;
 

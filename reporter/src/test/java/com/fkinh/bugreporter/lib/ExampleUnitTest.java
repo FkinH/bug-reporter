@@ -1,4 +1,4 @@
-package com.fkinh.bugreport;
+package com.fkinh.bugreporter.lib;
 
 import org.junit.Test;
 
