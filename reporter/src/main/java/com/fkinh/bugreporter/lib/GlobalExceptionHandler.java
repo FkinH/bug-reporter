@@ -2,6 +2,7 @@ package com.fkinh.bugreporter.lib;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.util.Log;
 
 import java.util.Arrays;
 
@@ -18,6 +19,8 @@ public class GlobalExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     private Context mContext;
 
+    private OnCrashListener mListener;
+
     public static GlobalExceptionHandler getInstance(Context context) {
         if (instance == null) {
             synchronized (GlobalExceptionHandler.class) {
@@ -31,6 +34,12 @@ public class GlobalExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     public GlobalExceptionHandler(Context context){
         mContext = context;
+        mListener = new OnCrashListener() {
+            @Override
+            public void onCrash() {
+                Log.e("bug-reporter", "default on crash");
+            }
+        };
     }
 
     public void init() {
@@ -38,10 +47,15 @@ public class GlobalExceptionHandler implements Thread.UncaughtExceptionHandler {
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
 
+    public void setOnCrashListener(OnCrashListener mListener) {
+        this.mListener = mListener;
+    }
+
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
         insertThrowable2Db(ex);
         if (mDefaultHandler != null) {
+            mListener.onCrash();
             mDefaultHandler.uncaughtException(thread, ex);
         } else {
             android.os.Process.killProcess(android.os.Process.myPid());

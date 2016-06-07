@@ -9,11 +9,17 @@ import android.app.Application;
  */
 public class BugReportApplication extends Application {
 
+    private GlobalExceptionHandler mHandler;
+
     @Override
     public void onCreate(){
         super.onCreate();
-        GlobalExceptionHandler handler = GlobalExceptionHandler.getInstance(getApplicationContext());
-        handler.init();
+        mHandler = GlobalExceptionHandler.getInstance(getApplicationContext());
+        mHandler.init();
+    }
+
+    public void setOnCrashListener(OnCrashListener listener){
+        mHandler.setOnCrashListener(listener);
     }
 
 }
