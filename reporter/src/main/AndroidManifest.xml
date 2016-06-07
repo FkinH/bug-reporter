@@ -1,10 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fkinh.bugreporter.lib">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
+
+        <provider
+            android:authorities="br.provider.ERROR"
+            android:name=".ErrorProvider"
+            android:exported="false"/>
+
+        <receiver android:name=".PullBroadcast">
+            <intent-filter>
+                <action android:name="br.action.PULL"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

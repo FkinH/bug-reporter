@@ -12,7 +12,7 @@ import android.util.Log;
  */
 public class ErrorDatabase extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "error";
+    public static final String DB_NAME = "error.db";
 
     public static final int DB_VERSION = 1;
 
